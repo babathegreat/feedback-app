@@ -29,15 +29,22 @@ function Header({text, bgColor, textColor}) {
   )
 }
 
-// This is outside of jsx - regular javascript - sets the default props for header on the 
-// App.js file text to Feedback UI
+// I had this in the App.js file not in the Header.js file so it was throwing errors. 
+// It sets the props for the Header file so should be with the Header file.
 
+//The default props are used if no props are explicitly defined in App.js
 Header.defaultProps = {
-    text: 'Feedback UI'
+    text: 'Feedback UI',
+    bgColor: 'rgba(0,0,0,0.4)',
+    textColor: '#ff6a95',
 }
 
+//This adds prop type checking to make sure don't assign the wrong type to a prop.
 Header.propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    bgColor: PropTypes.string,
+    textColor: PropTypes.string
+
 }
 
 export default Header
