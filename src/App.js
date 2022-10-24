@@ -18,7 +18,7 @@ function App () {
     //if use ({}) will get the object not the data.
     //feedback is the object containing the data in FeedbackData - so we can use this
     //object later to access it. We use setFeedback to change the data of the object.
-    
+
     const [feedback, setFeedback] = useState(FeedbackData);
 
     return(
