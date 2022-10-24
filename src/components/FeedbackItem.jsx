@@ -10,6 +10,8 @@ import React from 'react'
 
 //import { useState } from 'react'
 
+import Card from './shared/Card'
+
 function FeedbackItem({item}) {
 
     //useState to hold data in the component's state instead of hardcoding it.
@@ -45,14 +47,20 @@ function FeedbackItem({item}) {
 
     //When removed the hardcoded usestate data above - changed below from {rating} {text}
     // to {item.rating} {item.text}
-    
-    <div className='card'>
+
+    //Instead of using a div with card switch to use the component!
+    //<div className='card'>
+
+    //Add reverse attribute so can have black background instead of white
+    <Card reverse = {true}>
+
         <div className='num-display'>{item.rating}</div>
         <div className='text-display'>{item.text}</div>
 
         {/* Adding a button that calls handleclick when pressed <button onClick={handleClick}>Click</button>*/}
-        
-    </div>
+    
+    </Card>
+    //</div>
   )
 }
 
