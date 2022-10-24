@@ -4,17 +4,21 @@
 import React from 'react'
 
 //Hooks begin with ..use..
-import { useState } from 'react'
+//later after we make FeedbackData.jsx - don't need to hardocde this data anymore so
+//remove this state from here.. when do this add {item} to the function call as a prop
+//and comment out the const x2 below
 
-function FeedbackItem() {
+//import { useState } from 'react'
+
+function FeedbackItem({item}) {
 
     //useState to hold data in the component's state instead of hardcoding it.
 
     //the first part 'rating' is the variable name
     //the second part 'setRating' is a function used to update the rating
     //the right side is iniital value - 7
-    const [rating, setRating] = useState(7);
-    const [text, setText] = useState('This is a good example of a feedback item');
+    //const [rating, setRating] = useState(7);
+    //const [text, setText] = useState('This is a good example of a feedback item');
 
     //This creates the variable handleClick which is function calling setRating to change its value to 10.
     //const handleClick = () => {
@@ -38,9 +42,13 @@ function FeedbackItem() {
 
   return (
     //className is being used to style from pre-defined css names...
+
+    //When removed the hardcoded usestate data above - changed below from {rating} {text}
+    // to {item.rating} {item.text}
+    
     <div className='card'>
-        <div className='num-display'>{rating}</div>
-        <div className='text-display'>{text}</div>
+        <div className='num-display'>{item.rating}</div>
+        <div className='text-display'>{item.text}</div>
 
         {/* Adding a button that calls handleclick when pressed <button onClick={handleClick}>Click</button>*/}
         
