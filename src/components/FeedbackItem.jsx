@@ -2,6 +2,7 @@
 
 //Use short cut rfce to bring scaffolding in
 import React from 'react'
+import PropTypes from 'prop-types'
 
 //Hooks begin with ..use..
 //later after we make FeedbackData.jsx - don't need to hardocde this data anymore so
@@ -52,7 +53,8 @@ function FeedbackItem({item}) {
     //<div className='card'>
 
     //Add reverse attribute so can have black background instead of white
-    <Card reverse = {true}>
+    // <Card reverse = {true}> can define here or set in props of card.jsx
+    <Card>
 
         <div className='num-display'>{item.rating}</div>
         <div className='text-display'>{item.text}</div>
@@ -62,6 +64,10 @@ function FeedbackItem({item}) {
     </Card>
     //</div>
   )
+}
+
+FeedbackItem.propTypes = {
+    item: PropTypes.object.isRequired,
 }
 
 export default FeedbackItem
