@@ -3,6 +3,8 @@ import React from 'react'
 //Need to import the FeedbackItem Component as we use it below in our jsx.
 import FeedbackItem from './FeedbackItem'
 
+import PropTypes from 'prop-types'
+
 //pass in the {feedback} prop that we passed in the App.jsx in FeedbackList.
 function FeedbackList({feedback}) {
   
@@ -38,6 +40,16 @@ function FeedbackList({feedback}) {
         )}
     </div>
   )
+}
+
+FeedbackList.propTypes = {
+    feedback: PropTypes.arrayof(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            rating: PropTypes.number.isRequired,
+            text: PropTypes.string.isRequired,
+        })
+    )
 }
 
 export default FeedbackList
