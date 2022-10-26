@@ -3,6 +3,7 @@
 //App.js
 //  FeedbackData.js
 //  FeedbackList.jsx
+//  FeedbackStats.jsx
 //      FeedbackItem.jsx
 //          Card.jsx
 
@@ -13,8 +14,11 @@ import Header from "./components/Header"
 //This brings in just one item - want the whole list so don't use
 //import FeedbackItem from "./components/FeedbackItem"
 
+//for every new component we need to import it here
+
 import FeedbackList from "./components/FeedbackList"
 import FeedbackData from "./data/FeedbackData";
+import FeedbackStats from "./components/FeedbackStats";
 
 //Pass global state down to components so need this
 import {useState} from 'react'
@@ -26,6 +30,9 @@ function App () {
     //if use ({}) will get the object not the data.
     //feedback is the object containing the data in FeedbackData - so we can use this
     //object later to access it. We use setFeedback to change the data of the object.
+
+    //Whenever the feedback object changes it can change everywhere it is referenced so
+    //makes it easy to make changes throughout
 
     const [feedback, setFeedback] = useState(FeedbackData);
 
@@ -59,6 +66,11 @@ function App () {
 
                     {/* Here need to pass in feedback as a prop from our useState in the App */}
                     {/* Next added handleDelete and called the function deleteFeedback which we define above */}
+                
+                {/*Add feedbacksats to render and pass in as a prop the entire feedback array*/}
+                <FeedbackStats feedback={feedback}/>
+
+                {/*Add feedbacklist to render and pass in as a prop the entire feedback array and the handledelete prop*/}
                 <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
             
             </div>
