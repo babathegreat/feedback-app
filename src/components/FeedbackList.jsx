@@ -43,7 +43,7 @@ function FeedbackList({feedback}) {
 }
 
 FeedbackList.propTypes = {
-    feedback: PropTypes.arrayof(
+    feedback: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
             rating: PropTypes.number.isRequired,
