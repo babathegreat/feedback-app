@@ -34,7 +34,13 @@ function FeedbackList({feedback}) {
 
         {feedback.map((item)=>(
                 <div>
-                    <FeedbackItem key={item.id} item={item}/>
+                    <FeedbackItem 
+                        key={item.id} 
+                        item={item} 
+
+                        //this is now a prop of FeedbackItem so should add it to FeedbackItem.jsx 
+                        //function call definition right at the top of the file.
+                        handleDelete={(id) => console.log(id)} />
                 </div>
             )
         )}

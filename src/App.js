@@ -1,4 +1,12 @@
 
+//Structure
+//App.js
+//  FeedbackData.js
+//  FeedbackList.jsx
+//      FeedbackItem.jsx
+//          Card.jsx
+
+
 //Need to import each jsx file we make into the App.js
 import Header from "./components/Header"
 

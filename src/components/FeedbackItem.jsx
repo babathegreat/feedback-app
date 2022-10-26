@@ -16,7 +16,7 @@ import { FaTimes } from 'react-icons/fa'
 
 import Card from './shared/Card'
 
-function FeedbackItem({item}) {
+function FeedbackItem({item, handleDelete}) {
 
     //useState to hold data in the component's state instead of hardcoding it.
 
@@ -46,9 +46,10 @@ function FeedbackItem({item}) {
         //);
     //}
 
-    const handleClick = (id) => {
-        console.log(id)
-    }
+    // Got rid of this after added handleDelete as a prop
+    //const handleClick = (id) => {
+    //    console.log(id)
+    // }
 
   return (
     //className is being used to style from pre-defined css names...
@@ -64,7 +65,9 @@ function FeedbackItem({item}) {
     <Card>
 
         <div className='num-display'>{item.rating}</div>
-        <button onClick={() => handleClick(item.id)} className='close'>
+        
+        {/*<button onClick={() => handleClick(item.id)} className='close'> Modified this to be handleDelete instead*/}
+        <button onClick={() => handleDelete(item.id)} className='close'>
             <FaTimes color='purple' />
         </button>
         <div className='text-display'>{item.text}</div>
