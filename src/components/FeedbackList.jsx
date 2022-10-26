@@ -6,7 +6,7 @@ import FeedbackItem from './FeedbackItem'
 import PropTypes from 'prop-types'
 
 //pass in the {feedback} prop that we passed in the App.jsx in FeedbackList.
-function FeedbackList({feedback}) {
+function FeedbackList({feedback, handleDelete}) {
   
     //can do a console log to see what it's in the object
     //console.log(feedback)
@@ -40,7 +40,11 @@ function FeedbackList({feedback}) {
 
                         //this is now a prop of FeedbackItem so should add it to FeedbackItem.jsx 
                         //function call definition right at the top of the file.
-                        handleDelete={(id) => console.log(id)} />
+                        //handleDelete={(id) => console.log(id)} />
+
+                        //So now want to pass the handleDelete prop up one more level to App.js
+                        //define it below and pass it up above.
+                        handleDelete={handleDelete} />
                 </div>
             )
         )}

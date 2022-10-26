@@ -29,6 +29,16 @@ function App () {
 
     const [feedback, setFeedback] = useState(FeedbackData);
 
+    //Add this new function so that when onclick is pushed to delete that it is passed from 
+    //the bottommost component (FeedbackItem.jsx) up to App.js otherwise it doesn't know what
+    //happened down below.
+
+    //want this right here because it's where we can call setFeedback to change the data array
+    //we cant call setFeedback in other components so have to do here.
+    const deleteFeedback = (id) => {
+        console.log('App', id)
+    }
+
     return(
         <>
             {/* JSX comment needs curly brackets - Can set the prop text for this value 
@@ -43,7 +53,8 @@ function App () {
                 {/* But we want to show more than 1 item so use FeedbackList instead */}
 
                     {/* Here need to pass in feedback as a prop from our useState in the App */}
-                <FeedbackList feedback={feedback}/>
+                    {/* Next added handleDelete and called the function deleteFeedback which we define above */}
+                <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
             
             </div>
         </>
