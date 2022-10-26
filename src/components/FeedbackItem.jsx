@@ -4,6 +4,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+//Use font awesome
+import { FaTimes } from 'react-icons/fa'
+
 //Hooks begin with ..use..
 //later after we make FeedbackData.jsx - don't need to hardocde this data anymore so
 //remove this state from here.. when do this add {item} to the function call as a prop
@@ -43,6 +46,10 @@ function FeedbackItem({item}) {
         //);
     //}
 
+    const handleClick = (id) => {
+        console.log(id)
+    }
+
   return (
     //className is being used to style from pre-defined css names...
 
@@ -57,6 +64,9 @@ function FeedbackItem({item}) {
     <Card>
 
         <div className='num-display'>{item.rating}</div>
+        <button onClick={() => handleClick(item.id)} className='close'>
+            <FaTimes color='purple' />
+        </button>
         <div className='text-display'>{item.text}</div>
 
         {/* Adding a button that calls handleclick when pressed <button onClick={handleClick}>Click</button>*/}
