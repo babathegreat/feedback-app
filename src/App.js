@@ -36,7 +36,12 @@ function App () {
     //want this right here because it's where we can call setFeedback to change the data array
     //we cant call setFeedback in other components so have to do here.
     const deleteFeedback = (id) => {
-        console.log('App', id)
+        //just to check this works
+        //console.log('App', id)
+
+        if (window.confirm('Are you sure you want to delete?')) {
+            setFeedback(feedback.filter((item) => item.id !== id))
+        }
     }
 
     return(
