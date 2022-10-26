@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 
 function FeedbackStats({feedback}) {
@@ -7,6 +8,9 @@ function FeedbackStats({feedback}) {
     //Also need to put the starting array index of 0 otherwise doesn't work.
 
 let average = feedback.reduce((prev, curr)=> prev + curr.rating, 0) / feedback.length;
+
+//Set to only 1 decimal place if 0 then replace that with nothing
+average = average.toFixed(1).replace(/[.,]0$/, '');
 
   return (
     <div className='feedback-stats'>
@@ -18,6 +22,10 @@ let average = feedback.reduce((prev, curr)=> prev + curr.rating, 0) / feedback.l
         
     </div>
   )
+}
+
+FeedbackStats.propTypes = {
+    feedback: PropTypes.array.isRequired
 }
 
 export default FeedbackStats
