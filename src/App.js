@@ -19,6 +19,7 @@ import Header from "./components/Header"
 import FeedbackList from "./components/FeedbackList"
 import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/FeedbackStats";
+import FeedbackForm from "./components/FeedbackForm";
 
 //Pass global state down to components so need this
 import {useState} from 'react'
@@ -67,6 +68,8 @@ function App () {
                     {/* Here need to pass in feedback as a prop from our useState in the App */}
                     {/* Next added handleDelete and called the function deleteFeedback which we define above */}
                 
+                <FeedbackForm />
+
                 {/*Add feedbacksats to render and pass in as a prop the entire feedback array*/}
                 <FeedbackStats feedback={feedback}/>
 
