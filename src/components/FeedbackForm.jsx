@@ -1,9 +1,15 @@
 import React from 'react'
 import Card from './shared/Card'
 import {useState} from 'react'
+import Button from './shared/Button'
 
 function FeedbackForm() {
-  const [text, setText] = useState('')
+  const [text, setText] = useState('');
+
+  //Addedd thse 2 new states so can disable and enable the submit button
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [message, setMessage] = useState('');
+
 
   const handleTextChange = (e) => {
     setText(e.target.value)
@@ -22,7 +28,9 @@ function FeedbackForm() {
                     value={text}
                 />
 
-                <button type='submit'>Submit</button>
+                <Button type='submit' isDisabled={btnDisabled}>
+                    Submit
+                </Button>
             </div>
         </form>
     </Card>
