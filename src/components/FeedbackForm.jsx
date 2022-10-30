@@ -8,10 +8,27 @@ function FeedbackForm() {
 
   //Addedd thse 2 new states so can disable and enable the submit button
   const [btnDisabled, setBtnDisabled] = useState(true);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('Hello');
 
 
   const handleTextChange = (e) => {
+    //First check if the text is empty
+    if ({text} === '') {
+      setBtnDisabled(true);
+      setMessage(null);
+
+      //Second check if text <= 10 characters
+    } else if((text !== '') && (text.length <= 10)) {
+      setBtnDisabled(true);
+      setMessage('Please enter at least 10 characters');
+
+      //Last if >=10 characters then enable the submit button
+    } else {
+      setMessage(null);
+      setBtnDisabled(false);
+    }
+    
+    //jsut keeps setting text to whatever is in the input box in realtime
     setText(e.target.value)
   }
 
@@ -32,6 +49,10 @@ function FeedbackForm() {
                     Submit
                 </Button>
             </div>
+
+        <div className='message'>{message}</div>
+        {message && <div className='message'>{message}</div>}
+
         </form>
     </Card>
   )
