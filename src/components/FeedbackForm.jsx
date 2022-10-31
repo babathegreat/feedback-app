@@ -2,14 +2,18 @@ import React from 'react'
 import Card from './shared/Card'
 import {useState} from 'react'
 import Button from './shared/Button'
+import RatingSelect from './RatingSelect'
 
 function FeedbackForm() {
   const [text, setText] = useState('');
 
   //Addedd thse 2 new states so can disable and enable the submit button
   const [btnDisabled, setBtnDisabled] = useState(true);
-  const [message, setMessage] = useState('Hello');
+  const [message, setMessage] = useState('');
 
+  //Added rating so can manipulate the rating
+
+  const[rating, setRating] = useState(10);
 
   const handleTextChange = (e) => {
     //First check if the text is empty
@@ -36,6 +40,9 @@ function FeedbackForm() {
     <Card>
         <form>
             <h2>How would you rate us?</h2>
+
+            {/* Put select rating component here */}
+            <RatingSelect />
 
             <div className='input-group'>
                 <input 
