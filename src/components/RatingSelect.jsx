@@ -1,13 +1,32 @@
 import React from 'react'
 import { useState } from 'react'
 
-function RatingSelect() {
+function RatingSelect({select}) {
 
-const[selected, setSelected] = useState(4);
+const[selected, setSelected] = useState(10);
 
 const handleChange = (e) => {
     //console.log(typeof e.currentTarget.value);
     setSelected(+e.currentTarget.value);
+
+
+    //Problem here - selected is the last value selected not the current value.
+    //How do you fix that?
+    //console.log(selected);
+
+    //currentTarget shows the current selected though
+    //console.log(+e.currentTarget.value);
+
+    //so must be some type of delay in updating selected value at this point...
+
+    //want to call select prop next so that can pass it up to FeedbackForm.jsx
+    //so we call select on the value selected to do that.
+
+    //select(selected);
+
+    select(+e.currentTarget.value);
+
+    //Not sure what setSelected does then - seems redundant to do both?
 };
 
   return (

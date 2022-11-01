@@ -36,9 +36,27 @@ function FeedbackForm() {
     setText(e.target.value)
   }
 
+  //create new function to handle the form submit
+  const handleSubmit = (e) => {
+    
+    //Prevent default action
+    e.preventDefault();
+
+    //Check length one more time to be sure.
+    if(text.length >=10) {
+      const newFeedback = {
+        text: text,
+        rating: rating
+      }
+
+      console.log(newFeedback);
+    }
+  }
+
+
   return (
     <Card>
-        <form>
+        <form onSubmit = {handleSubmit}>
             <h2>How would you rate us?</h2>
 
             {/* Put select rating component here 
