@@ -41,8 +41,19 @@ function FeedbackForm() {
         <form>
             <h2>How would you rate us?</h2>
 
-            {/* Put select rating component here */}
-            <RatingSelect />
+            {/* Put select rating component here 
+            <RatingSelect />   Now want to pass what rating was selected up to
+            we create a new prop called "select" then we need to pass that to 
+            RatingSelect function on the RatingSelect.jsx as well
+            
+            This one shows console so can verify what is being outputted
+            <RatingSelect select={(rating) => console.log(rating)}/>
+
+            Below we want to set the rating to the rating from the Rating select
+            in the feedbackform.jsx - this file - so that's why we setRating
+            */}
+
+            <RatingSelect select={(rating) => setRating(rating)} />
 
             <div className='input-group'>
                 <input 
