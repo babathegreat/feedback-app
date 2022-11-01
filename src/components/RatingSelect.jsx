@@ -3,9 +3,12 @@ import { useState } from 'react'
 
 function RatingSelect() {
 
-const[selected, setSelected] = useState(10);
+const[selected, setSelected] = useState(4);
 
-const handleChange = (e) => {};
+const handleChange = (e) => {
+    //console.log(typeof e.currentTarget.value);
+    setSelected(+e.currentTarget.value);
+};
 
   return (
     <ul className='rating'>
