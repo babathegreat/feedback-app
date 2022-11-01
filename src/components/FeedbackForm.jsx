@@ -4,7 +4,7 @@ import {useState} from 'react'
 import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
 
-function FeedbackForm() {
+function FeedbackForm({handleAdd}) {
   const [text, setText] = useState('');
 
   //Addedd thse 2 new states so can disable and enable the submit button
@@ -49,7 +49,14 @@ function FeedbackForm() {
         rating: rating
       }
 
-      console.log(newFeedback);
+      //Display what the newFeedback is
+      //console.log(newFeedback);
+
+      //Send the newFeedback to App.js
+      handleAdd(newFeedback);
+
+      //After submit is pressed clear the text box
+      setText('');
     }
   }
 

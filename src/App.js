@@ -1,11 +1,16 @@
 
-//Structure
+//Structure - based on imports...
 //App.js
+//  Header.jsx
 //  FeedbackData.js
 //  FeedbackList.jsx
-//  FeedbackStats.jsx
 //      FeedbackItem.jsx
 //          Card.jsx
+//  FeedbackStats.jsx
+//  FeedbackForm.jsx
+//      RatingSelect.jsx
+//      Button.jsx
+//      Card.jsx
 
 
 //Need to import each jsx file we make into the App.js
@@ -36,6 +41,13 @@ function App () {
     //makes it easy to make changes throughout
 
     const [feedback, setFeedback] = useState(FeedbackData);
+    
+    //Use the newFeedback that we gathered off the feedback form...
+    const addFeedback = (newFeedback) => {
+        
+        //test to see what the value is
+        console.log(newFeedback);
+    }
 
     //Add this new function so that when onclick is pushed to delete that it is passed from 
     //the bottommost component (FeedbackItem.jsx) up to App.js otherwise it doesn't know what
@@ -68,7 +80,10 @@ function App () {
                     {/* Here need to pass in feedback as a prop from our useState in the App */}
                     {/* Next added handleDelete and called the function deleteFeedback which we define above */}
                 
-                <FeedbackForm />
+                {/* Create new function to add feedback in the feedbackform.
+                When do this need to add back to FeedbackForm function on FeedbackForm.jsx
+                as a prop*/}
+                <FeedbackForm handleAdd={addFeedback}/>
 
                 {/*Add feedbacksats to render and pass in as a prop the entire feedback array*/}
                 <FeedbackStats feedback={feedback}/>
