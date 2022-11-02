@@ -48,9 +48,13 @@ function App () {
     const addFeedback = (newFeedback) => {
         //Add a UUID to newFeedback
         newFeedback.id = uuidv4();
-        
+
         //test to see what the value is
-        console.log(newFeedback);
+        //console.log(newFeedback);
+
+        //Use setFeedback to add newFeedback to the existing feedback
+        //have to use as an array with spread operator
+        setFeedback([newFeedback,...feedback]);
     }
 
     //Add this new function so that when onclick is pushed to delete that it is passed from 
