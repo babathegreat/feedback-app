@@ -29,6 +29,8 @@ import FeedbackForm from "./components/FeedbackForm";
 //Pass global state down to components so need this
 import {useState} from 'react'
 
+//Import the UUID component to generate unique ids for our feedback
+import { v4 as uuidv4 } from 'uuid';
 
 function App () {
 
@@ -44,6 +46,8 @@ function App () {
     
     //Use the newFeedback that we gathered off the feedback form...
     const addFeedback = (newFeedback) => {
+        //Add a UUID to newFeedback
+        newFeedback.id = uuidv4();
         
         //test to see what the value is
         console.log(newFeedback);
