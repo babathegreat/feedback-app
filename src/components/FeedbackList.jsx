@@ -5,6 +5,9 @@ import FeedbackItem from './FeedbackItem'
 
 import PropTypes from 'prop-types'
 
+//Import in framer-motion components to animate
+import {motion, AnimatePresence} from 'framer-motion'
+
 //pass in the {feedback} prop that we passed in the App.jsx in FeedbackList.
 function FeedbackList({feedback, handleDelete}) {
   
@@ -16,9 +19,30 @@ function FeedbackList({feedback, handleDelete}) {
         return <p>No Feedback Yet</p>
     }
 
-
+    //This is the return with the animation
     return (
-    <div className='feedback-list'>
+        
+        <div className='feedback-list'>
+            <AnimatePresence>
+            {feedback.map((item) => (
+                <motion.div
+                    key={item.id}
+                    initial={{opacity:0}}
+                    animate={{opacity:1}}
+                    exit={{opacity:0}}
+                >
+                    <FeedbackItem key={item.id} item={item} handleDelete={handleDelete}/>
+                </motion.div>
+            ))}
+             </AnimatePresence>
+        </div>
+       
+    )
+
+
+    //This is the return without the animation
+    // return (
+    // <div className='feedback-list'>
         {/* example of mapping just the item rating - shows just numbers. Note this
         uses the object brackets for that item vs below we use the imported component.
 
@@ -32,11 +56,11 @@ function FeedbackList({feedback, handleDelete}) {
         {/* Below we keep item which is the props passing the data for each item in the feedbacklist
         We also add attributes of key and item for each item*/}
 
-        {feedback.map((item)=>(
-                <div>
-                    <FeedbackItem 
-                        key={item.id} 
-                        item={item} 
+    //    {feedback.map((item)=>(
+    //            <div>
+    //                <FeedbackItem 
+    //                    key={item.id} 
+    //                    item={item} 
 
                         //this is now a prop of FeedbackItem so should add it to FeedbackItem.jsx 
                         //function call definition right at the top of the file.
@@ -44,12 +68,13 @@ function FeedbackList({feedback, handleDelete}) {
 
                         //So now want to pass the handleDelete prop up one more level to App.js
                         //define it below and pass it up above.
-                        handleDelete={handleDelete} />
-                </div>
-            )
-        )}
-    </div>
-  )
+    //                    handleDelete={handleDelete} />
+    //            </div>
+    //        )
+    //    )}
+    //</div>
+    
+  //)
 }
 
 FeedbackList.propTypes = {
