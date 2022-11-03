@@ -32,7 +32,7 @@ function FeedbackForm({handleAdd}) {
       setBtnDisabled(false);
     }
     
-    //jsut keeps setting text to whatever is in the input box in realtime
+    //just keeps setting text to whatever is in the input box in realtime
     setText(e.target.value)
   }
 
@@ -94,7 +94,9 @@ function FeedbackForm({handleAdd}) {
             </div>
 
         <div className='message'>{message}</div>
+        {/* commented this one out as I don't think I need to have 2 messages.
         {message && <div className='message'>{message}</div>}
+          */}
 
         </form>
     </Card>
