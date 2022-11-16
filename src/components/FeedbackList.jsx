@@ -6,7 +6,10 @@ import FeedbackItem from './FeedbackItem'
 import PropTypes from 'prop-types'
 
 //Import in framer-motion components to animate
-import {motion, AnimatePresence} from 'framer-motion'
+// Stopped working 11/4/22 - googled a fix: https://github.com/framer/motion/issues/1525
+//import {motion, AnimatePresence} from 'framer-motion'
+//This got rid of the error - can't import named children....
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 
 //pass in the {feedback} prop that we passed in the App.jsx in FeedbackList.
 function FeedbackList({feedback, handleDelete}) {
@@ -44,7 +47,7 @@ function FeedbackList({feedback, handleDelete}) {
     //This is the return without the animation
     // return (
     // <div className='feedback-list'>
-        {/* example of mapping just the item rating - shows just numbers. Note this
+        /* example of mapping just the item rating - shows just numbers. Note this
         uses the object brackets for that item vs below we use the imported component.
 
         {feedback.map((item)=> (
@@ -52,10 +55,10 @@ function FeedbackList({feedback, handleDelete}) {
                 {item.rating}
             </div>
         )
-        )} */}
+        )} */
 
-        {/* Below we keep item which is the props passing the data for each item in the feedbacklist
-        We also add attributes of key and item for each item*/}
+        /* Below we keep item which is the props passing the data for each item in the feedbacklist
+        We also add attributes of key and item for each item*/
 
     //    {feedback.map((item)=>(
     //            <div>

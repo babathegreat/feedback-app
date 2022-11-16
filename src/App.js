@@ -12,7 +12,7 @@
 //      Button.jsx
 //      Card.jsx
 
-
+import React from 'react'
 //Need to import each jsx file we make into the App.js
 import Header from "./components/Header"
 

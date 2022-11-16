@@ -1,4 +1,4 @@
-//import React from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 // added props to pass in from the App.js file - bgColor & textColor using destructuring
