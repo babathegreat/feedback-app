@@ -9,7 +9,11 @@ import PropTypes from 'prop-types'
 // Stopped working 11/4/22 - googled a fix: https://github.com/framer/motion/issues/1525
 //import {motion, AnimatePresence} from 'framer-motion'
 //This got rid of the error - can't import named children....
-import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
+
+//import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
+//Creates a build error 11/17/22 so tyring to change it back
+
+import {motion, AnimatePresence} from 'framer-motion'
 
 //pass in the {feedback} prop that we passed in the App.jsx in FeedbackList.
 function FeedbackList({feedback, handleDelete}) {
